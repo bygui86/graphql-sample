@@ -1,0 +1,54 @@
+
+# GET ALL POSTS
+query post_all {
+  allPosts {
+    title
+    text
+    author{
+      name
+    }
+  }
+}
+
+# GET RECENT POSTS
+query post_recent {
+  recentPosts(offset: 5, count: 3) {
+    title
+    text
+    author{
+      name
+    }
+  }
+}
+
+# INSERT NEW POST
+mutation post_new {
+  writePost(title: "NEW POST TITLE", text: "NEW POST TEXT", authorId: "author_7") {
+    title
+    text
+    author{
+      name
+    }
+  }
+}
+
+# FILTER AUTHORS PER THUMBNAIL
+query author_all {
+  allAuthors {
+    id
+    name
+    thumbnail
+    posts {
+      title
+    }
+  }
+}
+
+# FILTER AUTHORS PER THUMBNAIL
+query author_filter {
+  filterAuthors(filter: {thumbnail_not_null_not_empty: true}) {
+    id
+    name
+    thumbnail
+  }
+}

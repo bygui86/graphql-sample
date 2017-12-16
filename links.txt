@@ -1,0 +1,46 @@
+
+---[ RS - GraphQL - Links ]---
+
+
+---[ MISSINGS
+	sample of grapqhl-java-annotations
+	better exception handling
+
+
+---[ Theory
+
+DONE
+https://www.howtographql.com/basics/0-introduction/
+http://www.baeldung.com/spring-graphql
+https://www.howtographql.com/graphql-java/0-introduction/
+https://github.com/leangen/GraphQL-SPQR
+https://github.com/leangen/graphql-spqr-samples
+
+FAILED
+https://github.com/oembedler/spring-graphql-common
+
+IN PROGRESS
+-
+
+TODO
+https://nwillc.wordpress.com/2016/10/13/graphql-java-server-javascript-client/
+https://github.com/graphql-java/awesome-graphql-java
+https://github.com/donbeave/graphql-java-datetime/tree/master/graphql-datetime-sample-app
+
+---[ Frameworks/Platforms
+
+-
+
+
+---[ Code
+
+-
+
+
+---[ Repo
+
+https://github.com/howtographql/graphql-java
+https://github.com/eugenp/tutorials/tree/master/spring-boot
+https://github.com/graphql/graphiql
+https://github.com/nwillc/mysnipserver
+https://github.com/nwillc/ratpack-graphql

@@ -1,0 +1,62 @@
+
+buildscript {
+	ext {
+		springBootVersion = "1.5.7.RELEASE"
+		graphqlSpringBootVersion="3.9.2"
+		graphqlSpqrVersion="0.9.3"
+		lombokVersion="1.16.18"
+	}
+	
+	repositories {
+		mavenCentral()
+	}
+	
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+
+apply plugin: "eclipse"
+apply plugin: "java"
+apply plugin: "org.springframework.boot"
+
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+jar {
+	baseName = "rs-graphqlsample-code-first"
+	version = "0.1"
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+
+	// Spring DevTools (Boot)
+	compile("org.springframework.boot:spring-boot-starter")
+	runtime("org.springframework.boot:spring-boot-devtools")
+	
+	// Spring Web (including REST)
+	compile("org.springframework.boot:spring-boot-starter-web")
+
+	// GraphQL - Spring Boot
+	compile("com.graphql-java:graphql-spring-boot-starter:${graphqlSpringBootVersion}")
+
+	// GraphiQL - Spring Boot
+	compile("com.graphql-java:graphiql-spring-boot-starter:${graphqlSpringBootVersion}")
+
+	// GraphiQL SPQR
+	compile("io.leangen.graphql:spqr:${graphqlSpqrVersion}")
+
+
+	// Lombok
+	compileOnly("org.projectlombok:lombok:${lombokVersion}")
+	
+	
+	// Testing
+	testCompile("org.springframework.boot:spring-boot-starter-test")
+	testCompileOnly("org.projectlombok:lombok:${lombokVersion}")
+}

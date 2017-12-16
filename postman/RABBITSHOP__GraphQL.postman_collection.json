@@ -1,0 +1,152 @@
+{
+	"variables": [],
+	"info": {
+		"name": "RABBITSHOP__GraphQL",
+		"_postman_id": "577478e1-49a2-d9d6-6cfa-bed3b13665c7",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get recent posts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"tests[\"200 OK\"] = responseCode.code === 200;",
+							""
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"pm.globals.set(\"query\", \"{ recentPosts(offset: 5, count: 3) { title text author{ name } } }\");",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/graphql?query={{query}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"graphql"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "{{query}}",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get all posts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"tests[\"200 OK\"] = responseCode.code === 200;",
+							""
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"pm.globals.set(\"query\", \"{ allPosts { title text author{ name } } }\");",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/graphql?query={{query}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"graphql"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "{{query}}",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Insert new post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"tests[\"200 CREATED\"] = responseCode.code === 200;",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/graphql",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"query\": \"mutation newpost { writePost(title: \\\"NEW POST TITLE\\\", text: \\\"NEW POST TEXT\\\", author: \\\"author_7\\\") { title text author{ name } } }\",\n\t\"variables\": {}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
